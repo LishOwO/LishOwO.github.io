@@ -1,15 +1,16 @@
-var nb_col = 10;
-var nb_li = 10;
+var nb_col = 11;
+var nb_li = 11;
 var difficulte = 10;
 var grid = jQuery('#grid');
+
 for(var i=0;i<nb_li;i++){
 
     var line = jQuery('<tr></tr>');
     for(var j=0;j<nb_col;j++){
         var cell = jQuery('<td></td>');
-        cell.text(i+':'+j);
         cell.addClass('i'+i);
         cell.addClass('j'+j);
+        cell.addClass('paint');
         var aleatoire = getRandomInt(100);
         line.append(cell);
 
@@ -31,17 +32,99 @@ function getRandomInt(max) {
     return Math.floor(Math.random() * Math.floor(max));
   }
 
-  var count = 0;
+ 
   for(var i=0;i<nb_li;i++){
+
     for(var j=0;j<nb_col;j++){
+
         var cell = jQuery('.i'+i+'.j'+j);
-        if( cell.hasClass('indesirable') ){
-            count++;
-       }
-        console.log(i);
+
+        if( ! cell.hasClass('indesirable') ){
+            var numV = getNumVoisinage(i,j);
+            cell.text(numV);
+            //console.log(numV)
+
+        }
 
 
     }
 }
 
-alert('on a ' + count + ' indesirables');
+function getNumVoisinage(i,j){
+    var count = 0;
+
+
+    //voisin 1
+    var voisin1 = jQuery(    '.i'+(i-1)+'.j'+(j-1)    );
+    if(voisin1.hasClass('indesirable')){
+        count++;
+    }
+
+    //voisin 2
+    var voisin2 = jQuery(    '.i'+(i-1)+'.j'+(j)    );
+    if(voisin2.hasClass('indesirable')){
+        count++;
+    }
+
+    //voisin 3
+    var voisin3 = jQuery(    '.i'+(i-1)+'.j'+(j+1)    );
+    if(voisin3.hasClass('indesirable')){
+        count++;
+    }
+
+    //voisin 4
+    var voisin4 = jQuery(    '.i'+(i)+'.j'+(j-1)    );
+    if(voisin4.hasClass('indesirable')){
+        count++;
+    }
+
+    //voisin 5
+    var voisin5 = jQuery(    '.i'+(i)+'.j'+(j+1)    );
+    if(voisin5.hasClass('indesirable')){
+        count++;
+    }
+
+    //voisin 6
+    var voisin6 = jQuery(    '.i'+(i+1)+'.j'+(j-1)    );
+    if(voisin6.hasClass('indesirable')){
+        count++;
+    }
+    //voisin 7
+    var voisin7 = jQuery(    '.i'+(i+1)+'.j'+(j)    );
+    if(voisin7.hasClass('indesirable')){
+        count++;
+    }
+
+    //voisin 8
+    var voisin8 = jQuery(    '.i'+(i+1)+'.j'+(j+1)    );
+    if(voisin8.hasClass('indesirable')){
+        count++;
+    }
+    return count;
+}
+
+jQuery('td').click(
+    function (){
+        var cell = jQuery(this);
+        if (cell.hasClass('flag')){
+            return;
+        }
+        
+        
+        
+        cell.removeClass('paint');
+        if(cell.hasClass('indesirable')){
+            alert('You died ...')
+            
+            location.reload();
+        }
+    }
+)
+jQuery('td').contextmenu(
+    function(e){
+        e.preventDefault();
+        var cell = jQuery(this);
+        cell.toggleClass('flag');
+        }
+)
+

@@ -96,8 +96,11 @@ button:hover {
 }
 
 #grid{
-    margin:auto;
+    margin: auto;
     border-collapse: collapse;
+    position: absolute;
+    top: 5%;
+    left: 40%;
 }
 
 #grid td.indesirable {
@@ -105,10 +108,21 @@ button:hover {
 }
 
 #grid td{
-    border: 2px solid #000000;
+    border: 2px solid #222222;
     background-color: rgba(250, 250, 210, 0.6 );
-    width: 30px;
-    height: 30px;
     color: black;
+    text-align: center;
+    font-weight: 1000;
+    font-size: 250%;
+    width: 55px;
+    height: 55px;
 }
 
+#grid td.paint {
+    background : gray ;
+    font-size : 0;
+}
+
+#grid td.flag {
+    background: url('drapeau.jfif') no-repeat left/cover;
+}
