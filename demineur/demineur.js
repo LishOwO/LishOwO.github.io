@@ -103,16 +103,44 @@ function getNumVoisinage(i,j){
     return count;
 }
 
+/*
+ * pour une case aux coordonnees i, j ayant 0 bombes
+ * dans son voisinage, decouvre tous ses voisins
+ */
+function decouvre(i, j) {
+    var cell = jQuery(    '.i'+(i)+'.j'+(j)    );
+
+    // TODO: condition d'arret, sinon ca peut durer longtemps
+    // 
+    cell.removeClass('paint');
+
+    var voisin =  jQuery(    '.i'+(i+1)+'.j'+(j)    );
+    // TODO: un appel recursif a decouvre() dans certains cas
+
+}
+
 jQuery('td').click(
     function (){
         var cell = jQuery(this);
         if (cell.hasClass('flag')){
             return;
         }
+
         
         
+        if (cell.text() == "0") {
+            // decouvre les coordonnees de la case actuelle
+            var i, j; 
+            cell.attr("class").split(/\s+/).forEach(function(s) { 
+                if (s.startsWith("i")) { i  = parseInt(s.substring(1));} 
+                else if (s.startsWith("j")) { j  = parseInt(s.substring(1)); }
+            });
+            decouvre(i, j);
+        } else {
+            cell.removeClass('paint');
+        }
+       
         
-        cell.removeClass('paint');
         if(cell.hasClass('indesirable')){
             alert('You died ...')
             
