@@ -1,0 +1,57 @@
+#titre{
+  font-weight: bold;
+  text-align: center;
+  color : rgb(255, 79, 79)
+}
+#sousTitre{
+  font-weight: normal;
+  color : rgb(255, 255, 255);
+}
+body {
+  background-color :rgb(72, 90, 253);
+  color:white;
+  font-size:26px;
+  font-weight:bold;
+  font-family: sans-serif;
+}
+#texteBleu{
+  color : rgb(43, 43, 255);
+}
+
+#texteVert{
+  color : rgb(17, 253, 17);
+}
+#texteCouleur{
+	padding: 1em;
+}
+#tab{
+  border: 2px solid rgb(0, 0, 0);  /* fixe les bordures à 2 pixels et de couleur bleue*/
+  border-collapse: collapse; /* pour que les lignes de séparation soient jointes*/
+  margin: auto; /*pour centrer le tableau dans la page*/
+  font-size: bold; /* taille medium de la police */
+  color: rgb(255, 255, 255); /* couleur de la police */
+}
+
+span{
+  border-color:rgb(248, 248, 248);
+  border-width: 0.5em;
+  border-style:inset
+}
+
+#wikipedia{
+  background-color: white;
+  color: black;
+  border: 10px solid #4CAF50;
+  font-size:bold;
+  font-family: sans-serif;
+  font-size:26px;
+  border-radius: 8px;
+  transition-duration: 0.2s;
+
+}
+
+#wikipedia:hover {
+  background-color: #4CAF50; /* Green */
+  color: white;
+  cursor:pointer;
+}
