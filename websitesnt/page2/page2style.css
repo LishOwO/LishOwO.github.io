@@ -5,7 +5,7 @@ body{
   .topnav {
     background-color: #333;
     overflow: hidden;
-    transition-duration: 0.1s;
+    box-shadow:3px 3px 3px;
   }
   
   .topnav a {
