@@ -27,3 +27,8 @@ body{
   color: white;
 }
 
+.topnav a.active:hover{
+  background-color: white;
+  color:black;
+}
+
