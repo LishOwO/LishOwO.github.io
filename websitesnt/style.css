@@ -1,6 +1,7 @@
 body{
   font-size: 22px;
   font-family: 'Poppins', sans-serif;
+  text-align: center;
 }
 
 .topnav {
@@ -35,5 +36,15 @@ body{
 
 #text{
   padding:0.3em 1em;
+  text-align:center;
 }
 
+h1{
+  text-align: center;
+  font-size:3.5em;
+}
+
+footer{
+  font-size:18px;
+  text-align: center;
+}
